@@ -23,8 +23,8 @@ sampev.onSendPlayerSync = function(syncData)
     end
 end
 
-function main()
-    repeat wait(0) until isSampAvailable()
+lua_thread.create(function()
+    while not isSampAvailable() do wait(100) end
 
     sampAddChatMessage("{39C0FF}[Sion Auto Regen HP] {FFFFFF}Loaded! Ketik {39C0FF}/srgn", -1)
 
@@ -35,6 +35,17 @@ function main()
             local hp = getCharHealth(PLAYER_PED)
 
             if hp < 100 then
+                setCharHealth(PLAYER_PED, 100)
+
+                local now = os.clock()
+                if now - lastMsg > 1.5 then
+                    sampAddChatMessage("{39C0FF}[Sion]{FFFFFF} HP Di Regen. Tiktok & YouTube: @sion_299", -1)
+                    lastMsg = now
+                end
+            end
+        end
+    end
+end)            if hp < 100 then
                 setCharHealth(PLAYER_PED, 100)
 
                 local now = os.clock()
