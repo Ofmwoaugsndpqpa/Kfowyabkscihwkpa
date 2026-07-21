@@ -57,8 +57,4 @@ function main()
             sampAddChatMessage("{39C0FF}[Sion]{FFFFFF} Mode Lari.", -1)
         end
     end)
-
-    sampAddChatMessage("{00DAFF}[Sion Analog Run]{FFFFFF} Loaded. Gunakan /run.", -1)
-
-    wait(-1)
 end
