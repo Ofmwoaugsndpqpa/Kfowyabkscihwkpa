@@ -717,7 +717,7 @@ returnWoodActive = true
     end
 end
     
-    imgui.Text("Pilih Mode Jalan")
+    imgui.Text("Pilih Mode Jalan:")
 if RadioButton("Jalan Biasa", 0, walkMode[0]) then
     walkMode[0] = 0
     if enabled[0] then
@@ -994,20 +994,6 @@ end
 function main()
    repeat wait(100) until isSampAvailable()
     
-local scriptPath = debug.getinfo(1, "S").short_src
-local filename = scriptPath:match("([^\\/]+)$")
-local blocked = false
-lua_thread.create(function()
-wait(2000)
-if filename ~= "Sion Auto Job Kayu Nexotis.lua" then
-blocked = true
-    sampAddChatMessage("{39C0FF}[Sion] {FF0000}ERROR{FFFFFF} NGAPAIN DIGANTI NAMA FILENYA? MAU DI CLAIM YAA? :V", -1)
-    wait(3000)
-    thisScript():unload()
-    return
-   end
-end)
-    
     imgui.OnInitialize(function() applyTheme() end)
     
     lua_thread.create(function()
@@ -1033,7 +1019,7 @@ while true do
 
         if walkActive then
             updateWalk()
-        end
+        local
 
         if chopActive then
             updateChop()
